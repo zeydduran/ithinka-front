@@ -6,6 +6,7 @@
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,
     "strict": true,
+    "strictNullChecks": false,
     "noImplicitOverride": true,
     "noPropertyAccessFromIndexSignature": true,
     "noImplicitReturns": true,
@@ -21,6 +22,22 @@
     "lib": [
       "es2020",
       "dom"
+    ],
+    "paths": {
+      "@app/*": [
+        "src/app/*"
+      ],
+      "@common/*": [
+        "src/app/modules/app-common/*"
+      ],
+      "@modules/*": [
+        "src/app/modules/*"
+      ],
+    },
+    "resolveJsonModule": true,
+    "typeRoots": [
+      "node_modules/@types",
+      "src/typings"
     ]
   },
   "angularCompilerOptions": {

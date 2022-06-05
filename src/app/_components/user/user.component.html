@@ -1,0 +1,40 @@
+<app-layout>
+
+  <div class="card">
+    <div class="card-header">
+      <h5 class="card-title float-left">User</h5>
+      <div class="float-right">
+        <a href="" routerLink="/user/create" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
+      </div>
+    </div>
+    <div class="card-body">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Admin ?</th>
+            <th>Register Time</th>
+            <th><i class="fa fa-cogs"></i></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of users">
+            <td [innerText]="[user?.id]"></td>
+            <td [innerText]="[user?.name]"></td>
+            <td [innerText]="[user?.email]"></td>
+            <td>{{user?.isAdmin ? 'Yes' : 'No'}}</td>
+            <td>{{user?.created_at|date:'YYYY-MM-dd H:m:s'}}</td>
+            <td>
+              <div class="btn btn-group btn-group-sm">
+                <a href="" [routerLink]="['/user', user.id, 'edit']" class="btn btn-warning"><i class="fa fa-edit"></i></a>
+                <a (click)="delete(user.id)" class="btn btn-danger"><i class="fa fa-trash"></i></a>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</app-layout>

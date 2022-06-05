@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthenticationService } from './_services';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'ithinka-front';
+  title = 'JWT-Authentication-Angular';
+  constructor(private _auth: AuthenticationService) {
+    let user = localStorage.getItem('user')
+
+    if (typeof user !== 'undefined' && user !== null && _auth.userValue.access_token == null) {
+      _auth.userSubject.next(JSON.parse(user));
+    }
+  }
 }

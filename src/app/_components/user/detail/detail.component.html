@@ -1,0 +1,37 @@
+<app-layout>
+
+  <div class="card">
+    <div class="card-header">
+      <h5 class="float-left">
+        User Edit ({{user?.name}})
+      </h5>
+      <button form="updateForm" type="submit" class="btn btn-primary float-right btn-sm"><i
+          class="fa fa-save"></i></button>
+    </div>
+    <div class="card-body">
+      <form [formGroup]="updateForm" (ngSubmit)="submit()" id="updateForm">
+        <div class="form-row">
+          <div class="col">
+            <label for="">Name</label>
+            <input type="text" formControlName="name" value="{{user?.name}}" class="form-control">
+          </div>
+          <div class="col">
+            <label for="">E-Mail</label>
+            <input type="text" formControlName="email" value="{{user?.email}}" class="form-control">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="col">
+            <label for="">Password</label>
+            <input type="password" formControlName="password" class="form-control">
+          </div>
+          <div class="col">
+            <label for="">Password Confirm</label>
+            <input type="password" formControlName="passwordConfirm" class="form-control">
+          </div>
+        </div>
+      </form>
+    </div>
+
+  </div>
+</app-layout>
