@@ -5,7 +5,7 @@ import { CreateComponent, DetailComponent, HomeComponent,LoginComponent, Registe
 
 import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 import { FormsModule,ReactiveFormsModule } from "@angular/forms";
-import { ErrorInterceptor,JwtInterceptor } from "./_helpers";
+import { JwtInterceptor } from "./_helpers";
 import { UserComponent } from './_components/user/user.component';
 
 export const COMPONENTS : any[] = [
@@ -27,5 +27,4 @@ export const MODULES : any[] = [
 
 export const PROVIDERS : any[] = [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
-    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
 ];
